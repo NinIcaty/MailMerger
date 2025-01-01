@@ -28,7 +28,6 @@ def show_csv_in_window(data):
     scrollbar_x.pack(side='bottom', fill='x')
     text.configure(xscrollcommand=scrollbar_x.set)
 
-    # Display column names and types
     column_info = ', '.join([f"{col} ({dtype})" for col, dtype in zip(data.columns, data.dtypes)])
     text.insert(tk.END, column_info + '\n\n')
 
@@ -51,7 +50,7 @@ def generate_messages():
         messages.append(message)
 
     output_text.delete("1.0", tk.END)
-    output_text.insert(tk.END, "\n\n\n\n\n//////New merge\n".join(messages))  # Add 5 lines gap
+    output_text.insert(tk.END, "\n\n\n\n\n//////New merge\n".join(messages))  
 
 root = tk.Tk()
 root.title("Mail Merge")
