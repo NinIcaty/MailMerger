@@ -15,7 +15,6 @@ def add_column():
     columns.append(column_name)
     column_entry.delete(0, tk.END)
     update_column_labels()
-    #Not must messagebox.showinfo("Success", f"Column '{column_name}' added successfully!")
 
 def update_column_labels():
     for widget in entry_frame.winfo_children():
@@ -40,7 +39,6 @@ def add_entry():
     for entry in entries.values():
         entry.delete(0, tk.END)
     update_listbox()
-    #Not must messagebox.showinfo("Success", "Entry added successfully!")
 
 def update_listbox():
     listbox.delete(0, tk.END)
@@ -58,7 +56,7 @@ def save_to_csv():
             writer = csv.DictWriter(file, fieldnames=columns)
             writer.writeheader()
             writer.writerows(data)
-        #Not must messagebox.showinfo("Success", "CSV file saved successfully!")
+
 
 def create_csv_file():
     global data, columns
@@ -73,7 +71,6 @@ def create_csv_file():
             writer.writeheader()
             writer.writerows(data)
         messagebox.showinfo("Success", "New CSV file created successfully!")
-        # Reset data and columns for new CSV file
         data = []
         columns = ["First Name", "Last Name", "Profession"]
         update_column_labels()
@@ -113,7 +110,6 @@ def edit_entry():
         update_listbox()
         for entry in entries.values():
             entry.delete(0, tk.END)
-        #Not must messagebox.showinfo("Success", "Entry edited successfully!")
         edit_window.destroy()
 
     edit_window = tk.Toplevel(root)
@@ -129,7 +125,6 @@ def delete_entry():
     index = selected[0]
     del data[index]
     update_listbox()
-    #Not must messagebox.showinfo("Success", "Entry deleted successfully!")
 
 def customize_column_order():
     def save_order():
@@ -140,7 +135,6 @@ def customize_column_order():
             return
         columns = new_order
         update_listbox()
-        #Not must messagebox.showinfo("Success", "Column order updated successfully!")
         order_window.destroy()
 
     order_window = tk.Toplevel(root)
@@ -159,7 +153,6 @@ def customize_column_order():
 root = tk.Tk()
 root.title("CSV Creator")
 
-# Center the window on the screen
 window_width = 600
 window_height = 600
 screen_width = root.winfo_screenwidth()
